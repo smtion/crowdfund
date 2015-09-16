@@ -85,6 +85,7 @@ class Shop extends SM_Controller {
       
       // @TODO implement upload exception 
       if ($img_path) {
+        log_message('debug', 'I have image');
         $data['data']['img'] = $img_path; 
       }
             

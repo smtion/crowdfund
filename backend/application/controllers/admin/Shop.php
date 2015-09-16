@@ -85,7 +85,7 @@ class Shop extends SM_Controller {
       
       // @TODO implement upload exception 
       if ($img_path) {
-        $data['img'] = $img_path; 
+        $data['data']['img'] = $img_path; 
       }
             
       $this->m->update_shop($data);

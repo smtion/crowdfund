@@ -29,7 +29,8 @@ function initialize() {
     handleLocationError(false, infoWindow, map.getCenter());
   }
 
-  injectSampleData();
+  loadShopData();
+  //injectSampleData();
 }
 
 function handleLocationError(browserHasGeolocation, infoWindow, pos) {
@@ -42,6 +43,21 @@ function handleLocationError(browserHasGeolocation, infoWindow, pos) {
 google.maps.event.addDomListener(window, 'load', initialize);
 
 
+function loadShopData() {
+  var url = "http://smtion.com:8000/api/get_shops";
+  //var url = "http://localhost:8000/api/get_shops";
+  var data = {};
+
+  sm.ajax(url, data, function(res) {
+    for (i=0; i<res.length; i++) {
+      var marker = new google.maps.Marker({
+        map: map,
+        position: {lat: parseFloat(res[i].pos_x), lng: parseFloat(res[i].pos_y)}
+      });
+      attachSecretMessage(marker, res[i]);
+    }
+  });
+}
 function injectSampleData() {
   for (i=0; i<data.length; i++) {
     //var point = new GLatLng(data[i].pos[0], data[i].pos[1]);
@@ -78,14 +94,17 @@ function attachSecretMessage(marker, shop) {
 
 function showShopInfo(shop) {
   console.log(shop);
-  var l = $('#shopInfo');
-  l.find('.shopName').text(shop.name);
+  var s = $('#shopInfo');
+  s.show();
+  s.find('.shopName').text(shop.shop_name);
+  s.find('.shopImg').attr("src", shop.img);
+  s.find('.shopDescription').text(shop.description);
 }
 
 // sample data
 var data = [
   {
-    'pos': [37.480625, 126.952175],
+    'pos': ["37.480625", "126.952175"],
     'shop': {
       'name': 'McDonald'
     }

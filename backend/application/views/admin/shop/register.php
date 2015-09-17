@@ -6,6 +6,18 @@
     </div>
   </div>
   <div class="form-group">
+    <label class="col-sm-2 control-label">Position X</label>
+    <div class="col-sm-10">
+      <input type="text" name="pos_x" class="form-control">
+    </div>
+  </div>
+  <div class="form-group">
+    <label class="col-sm-2 control-label">Position Y</label>
+    <div class="col-sm-10">
+      <input type="text" name="pos_y" class="form-control">
+    </div>
+  </div>
+  <div class="form-group">
     <label class="col-sm-2 control-label">Shop Type</label>
     <div class="col-sm-10">
       <select name="type_id" class="form-control">

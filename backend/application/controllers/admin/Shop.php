@@ -36,6 +36,8 @@ class Shop extends SM_Controller {
     if ($this->input->post('shop_name')) {
       $data = array(
         'shop_name' => $this->input->post('shop_name'),
+        'pos_x' => $this->input->post('pos_x'),
+        'pos_y' => $this->input->post('pos_y'),
         'type_id' => $this->input->post('type_id'),
         'tel' => $this->input->post('tel'),
         'phone' => $this->input->post('phone'),
@@ -72,6 +74,8 @@ class Shop extends SM_Controller {
     if ($this->input->post('shop_name')) {
       $data['data'] = array(
         'shop_name' => $this->input->post('shop_name'),
+        'pos_x' => $this->input->post('pos_x'),
+        'pos_y' => $this->input->post('pos_y'),
         'type_id' => $this->input->post('type_id'),
         'tel' => $this->input->post('tel'),
         'phone' => $this->input->post('phone'),

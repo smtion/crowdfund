@@ -86,7 +86,7 @@ function attachSecretMessage(marker, shop) {
   //  content: shop.name
   //});
 
-  marker.addListener('click', function() {
+  marker.addListener('click touchstart', function() {
     //infowindow.open(marker.get('map'), marker);
     showShopInfo(shop);
   });
